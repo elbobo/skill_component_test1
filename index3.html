@@ -15,6 +15,43 @@
         .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white; }
         .alert { padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107; }
     </style>
+    <script>
+        <script>
+// Wait for page to load
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Find all elements with class 'component-demo'
+    const demos = document.querySelectorAll('.demo');
+    
+    demos.forEach(demo => {
+        // Get the next <pre> element after this demo
+        let nextElement = demo.nextElementSibling;
+        
+        // Keep looking until we find a <pre> tag
+        while (nextElement && nextElement.tagName !== 'PRE') {
+            nextElement = nextElement.nextElementSibling;
+        }
+        
+        // If we found a <pre> tag, copy the demo's HTML into it
+        if (nextElement && nextElement.tagName === 'PRE') {
+            // Get the inner HTML and escape it for display
+            const htmlContent = demo.innerHTML;
+            
+            // Escape HTML characters
+            const escapedHtml = htmlContent
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+            
+            // Insert into the pre tag
+            nextElement.textContent = escapedHtml;
+        }
+    });
+    
+});
+</script>
+    </script>
 </head>
 <body>
     <h1>Component Library Test updated to hide visbility of code snippets with css</h1>
@@ -26,39 +63,7 @@
         <div class="demo">
             <button class="btn">Click me</button>
         </div>
-        <pre class="component-code" data-component="button">&lt;button class="btn"&gt;New click me&lt;/button&gt;
-&lt;style&gt;
-.btn { 
-    padding: 10px 20px; 
-    background: #0066cc; 
-    color: white; 
-    border: none; 
-    border-radius: 4px; 
-}
-&lt;/style&gt;</pre>
-    </div>
-
-    <!-- APPROACH 2: Textarea -->
-    <div class="component">
-        <h2>Approach 2: Card (using &lt;textarea&gt;)</h2>
-        <div class="demo">
-            <div class="card">
-                <h3>Card Title</h3>
-                <p>This is card content</p>
-            </div>
-        </div>
-        <textarea readonly rows="10" data-component="card"><div class="card">
-    <h3>Card Title</h3>
-    <p>This is card content</p>
-</div>
-<style>
-.card { 
-    padding: 20px; 
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    background: white; 
-}
-</style></textarea>
+        <pre class="component-code" data-component="button"></pre>
     </div>
 
     <!-- APPROACH 3: JSON in script tag -->
@@ -69,13 +74,7 @@
                 <strong>Warning!</strong> This is an alert message.
             </div>
         </div>
-        <pre class="component-code" data-component="alert-json">{
-  "newAlert": {
-    "html": "&lt;div class=\"alert\"&gt;\n    &lt;strong&gt;Warning!&lt;/strong&gt; This is an alert message.\n&lt;/div&gt;",
-    "css": ".alert { \n    padding: 15px; \n    background: #fff3cd; \n    border-left: 4px solid #ffc107; \n}",
-    "description": "Alert component for warnings"
-  }
-}</pre>
+        <pre class="component-code" data-component="alert-json"></pre>
     </div>
 
     <!-- Hidden JSON for programmatic access -->
