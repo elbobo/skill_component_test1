@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Component Library Test</title>
+    <title>Component Library Test updated to hide visbility of code snippets with css</title>
     <style>
         body { font-family: sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
-        .component { margin: 40px 0; padding: 20px; border: 1px solid #ddd; }
+        .component { margin: 40px 0; padding: 20px; border: 1px solid #ddd; display: none; }
         .demo { padding: 20px; background: #f5f5f5; margin: 10px 0; }
         pre { background: #2d2d2d; color: #f8f8f8; padding: 15px; overflow-x: auto; }
         textarea { width: 100%; font-family: monospace; font-size: 14px; }
@@ -25,7 +25,7 @@
         <div class="demo">
             <button class="btn">Click me</button>
         </div>
-        <pre class="component-code" data-component="button">&lt;button class="btn"&gt;Click me&lt;/button&gt;
+        <pre class="component-code" data-component="button">&lt;button class="btn"&gt;New click me&lt;/button&gt;
 &lt;style&gt;
 .btn { 
     padding: 10px 20px; 
@@ -69,7 +69,7 @@
             </div>
         </div>
         <pre class="component-code" data-component="alert-json">{
-  "alert": {
+  "newAlert": {
     "html": "&lt;div class=\"alert\"&gt;\n    &lt;strong&gt;Warning!&lt;/strong&gt; This is an alert message.\n&lt;/div&gt;",
     "css": ".alert { \n    padding: 15px; \n    background: #fff3cd; \n    border-left: 4px solid #ffc107; \n}",
     "description": "Alert component for warnings"
