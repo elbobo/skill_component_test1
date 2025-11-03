@@ -17,18 +17,18 @@
     </style>
 </head>
 <body>
-    <h1>Component Library Test updated to hide visbility of code snippets with css</h1>
+    <h1>Component Library Test updated to add code snippets in standard p tags</h1>
     <p>Testing three different approaches for code extraction</p>
 
-    <!-- APPROACH 1: Pre tag with escaped HTML -->
+    <!-- APPROACH 1: P tag with escaped HTML -->
     <div class="component">
         <h2>Approach 1: Button (using &lt;pre&gt;)</h2>
         <div class="demo">
             <button class="btn">Click me</button>
         </div>
-        <pre class="component-code" data-component="button">&lt;div class=&quot;demo&quot;&gt;
+        <p class="component-code" data-component="button">&lt;div class=&quot;demo&quot;&gt;
             &lt;button class=&quot;btn&quot;&gt;Click me&lt;/button&gt;
-        &lt;/div&gt;</pre>
+        &lt;/div&gt;</p>
     </div>
 
     <!-- APPROACH 3: JSON in script tag -->
@@ -39,23 +39,12 @@
                 <strong>Warning!</strong> This is an alert message.
             </div>
         </div>
-        <pre class="component-code" data-component="alert-json">&lt;div class=&quot;demo&quot;&gt;
+        <p class="component-code" data-component="alert-json">&lt;div class=&quot;demo&quot;&gt;
             &lt;div class=&quot;alert&quot;&gt;
                 &lt;strong&gt;Warning!&lt;/strong&gt; This is an alert message.
             &lt;/div&gt;
-        &lt;/div&gt;</pre>
+        &lt;/div&gt;</p>
     </div>
-
-    <!-- Hidden JSON for programmatic access -->
-    <script type="application/json" id="component-library">
-{
-  "alert": {
-    "html": "<div class=\"alert\">\n    <strong>Warning!</strong> This is an alert message.\n</div>",
-    "css": ".alert { \n    padding: 15px; \n    background: #fff3cd; \n    border-left: 4px solid #ffc107; \n}",
-    "description": "Alert component for warnings"
-  }
-}
-    </script>
 
 </body>
 </html>
