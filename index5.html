@@ -7,7 +7,7 @@
     <style>
         body { font-family: sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
         .component { margin: 40px 0; padding: 20px; border: 1px solid #ddd; }
-        .component-code { }
+        .component-code { display: none }
         .demo { padding: 20px; background: #f5f5f5; margin: 10px 0; }
         pre { background: #2d2d2d; color: #f8f8f8; padding: 15px; overflow-x: auto; }
         textarea { width: 100%; font-family: monospace; font-size: 14px; }
@@ -15,41 +15,6 @@
         .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white; }
         .alert { padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107; }
     </style>
-    <script>
-// Wait for page to load
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Find all elements with class 'component-demo'
-    const demos = document.querySelectorAll('.demo');
-    
-    demos.forEach(demo => {
-        // Get the next <pre> element after this demo
-        let nextElement = demo.nextElementSibling;
-        
-        // Keep looking until we find a <pre> tag
-        while (nextElement && nextElement.tagName !== 'PRE') {
-            nextElement = nextElement.nextElementSibling;
-        }
-        
-        // If we found a <pre> tag, copy the demo's HTML into it
-        if (nextElement && nextElement.tagName === 'PRE') {
-            // Get the inner HTML and escape it for display
-            const htmlContent = demo.innerHTML;
-            
-            // Escape HTML characters
-            const escapedHtml = htmlContent
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;');
-            
-            // Insert into the pre tag
-            nextElement.textContent = escapedHtml;
-        }
-    });
-    
-});
-    </script>
 </head>
 <body>
     <h1>Component Library Test updated to hide visbility of code snippets with css</h1>
@@ -61,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="demo">
             <button class="btn">Click me</button>
         </div>
-        <pre class="component-code" data-component="button"></pre>
+        <pre class="component-code" data-component="button"><div class="demo">
+            <button class="btn">Click me</button>
+        </div></pre>
     </div>
 
     <!-- APPROACH 3: JSON in script tag -->
@@ -72,7 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <strong>Warning!</strong> This is an alert message.
             </div>
         </div>
-        <pre class="component-code" data-component="alert-json"></pre>
+        <pre class="component-code" data-component="alert-json"><div class="demo">
+            <div class="alert">
+                <strong>Warning!</strong> This is an alert message.
+            </div>
+        </div></pre>
     </div>
 
     <!-- Hidden JSON for programmatic access -->
